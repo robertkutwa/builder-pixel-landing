@@ -44,17 +44,7 @@ function App() {
                   />
                 }
               />
-              <Route
-                path="/quote"
-                element={
-                  <PlaceholderPage
-                    title="Get Quote"
-                    description="Calculate delivery costs for your parcel"
-                    actionText="Create Shipment"
-                    actionPath="/parcels/new"
-                  />
-                }
-              />
+
               <Route
                 path="/profile"
                 element={
