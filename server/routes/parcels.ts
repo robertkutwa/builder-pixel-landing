@@ -394,7 +394,9 @@ export const handleUpdateParcelStatus: RequestHandler = async (req, res) => {
   try {
     const user = (req as any).user;
     const { id } = req.params;
-    const validatedData = updateParcelStatusSchema.parse(req.body);
+    const validatedData = updateParcelStatusSchema.parse(
+      req.body,
+    ) as UpdateParcelStatusRequest;
 
     const parcelIndex = mockParcels.findIndex((p) => p.id === id);
     if (parcelIndex === -1) {
