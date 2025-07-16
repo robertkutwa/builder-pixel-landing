@@ -129,11 +129,12 @@ const updateParcelStatusSchema = z.object({
     .object({
       latitude: z.number(),
       longitude: z.number(),
-      address: z.string(),
-      city: z.string(),
-      state: z.string(),
-      postalCode: z.string(),
-      country: z.string(),
+      address: z.string().min(1),
+      city: z.string().min(1),
+      state: z.string().min(1),
+      postalCode: z.string().min(1),
+      country: z.string().min(1),
+      additionalInfo: z.string().optional(),
     })
     .optional(),
   message: z.string().optional(),
