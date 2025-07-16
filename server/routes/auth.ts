@@ -7,7 +7,7 @@ import {
   User,
   UserRole,
   ApiResponse,
-} from "@shared/api";
+} from "../../shared/api.js";
 
 // Mock database - in production, this would be a real database
 interface MockUser extends User {
