@@ -1,6 +1,6 @@
 import express from "express";
 import cors from "cors";
-import { handleDemo } from "./routes/demo";
+import { handleDemo } from "./routes/demo.js";
 import {
   handleRegister,
   handleLogin,
