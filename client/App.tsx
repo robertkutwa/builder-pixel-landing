@@ -8,6 +8,7 @@ import Dashboard from "./pages/Dashboard";
 import AdminDashboard from "./pages/AdminDashboard";
 import CreateParcel from "./pages/CreateParcel";
 import ParcelDetails from "./pages/ParcelDetails";
+import QuoteCalculator from "./pages/QuoteCalculator";
 import NotFound from "./pages/NotFound";
 import "./global.css";
 
