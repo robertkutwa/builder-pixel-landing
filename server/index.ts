@@ -7,7 +7,7 @@ import {
   handleGetProfile,
   requireAuth,
   requireRole,
-} from "./routes/auth";
+} from "./routes/auth.js";
 import {
   handleGetQuote,
   handleCreateParcel,
@@ -15,7 +15,7 @@ import {
   handleGetParcel,
   handleUpdateParcelStatus,
   handleCancelParcel,
-} from "./routes/parcels";
+} from "./routes/parcels.js";
 
 export function createServer() {
   const app = express();
