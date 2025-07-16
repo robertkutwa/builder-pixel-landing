@@ -180,12 +180,25 @@ export default function ParcelDetails() {
         </div>
         <div className="flex space-x-2">
           {canEdit() && (
-            <Button variant="outline">
+            <Button
+              variant="outline"
+              onClick={() => navigate(`/parcels/${parcel.id}/edit`)}
+            >
               <Edit className="w-4 h-4 mr-2" />
               Edit
             </Button>
           )}
-          {canCancel() && <Button variant="outline">Cancel Shipment</Button>}
+          {canCancel() && (
+            <Button
+              variant="outline"
+              onClick={() => {
+                // Implement cancel functionality here or navigate to edit page
+                navigate(`/parcels/${parcel.id}/edit`);
+              }}
+            >
+              Cancel Shipment
+            </Button>
+          )}
         </div>
       </div>
 
