@@ -105,7 +105,7 @@ export default function CreateParcel() {
       setFormData((prev) => ({
         ...prev,
         [parent]: {
-          ...prev[parent as keyof CreateParcelRequest],
+          ...(prev[parent as keyof CreateParcelRequest] as any),
           [child]: value,
         },
       }));
