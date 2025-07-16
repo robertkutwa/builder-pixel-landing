@@ -185,8 +185,8 @@ function calculateCost(
 // Route handlers
 export const handleGetQuote: RequestHandler = async (req, res) => {
   try {
-    const { pickupLocation, deliveryLocation, size, value } =
-      req.body as QuoteRequest;
+    const quoteData = req.body as QuoteRequest;
+    const { pickupLocation, deliveryLocation, size, value } = quoteData;
 
     const distance = calculateDistance(
       pickupLocation.latitude,
