@@ -227,7 +227,9 @@ export const handleGetQuote: RequestHandler = async (req, res) => {
 export const handleCreateParcel: RequestHandler = async (req, res) => {
   try {
     const user = (req as any).user;
-    const validatedData = createParcelSchema.parse(req.body);
+    const validatedData = createParcelSchema.parse(
+      req.body,
+    ) as CreateParcelRequest;
 
     const distance = calculateDistance(
       validatedData.pickupLocation.latitude,
