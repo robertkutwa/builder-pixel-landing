@@ -13,7 +13,26 @@ export default {
       },
     },
     extend: {
+      fontFamily: {
+        sans: ["Inter", "system-ui", "sans-serif"],
+      },
       colors: {
+        /* Deliveroo Brand Colors */
+        "deliveroo-teal": {
+          DEFAULT: "hsl(var(--deliveroo-teal))",
+          dark: "hsl(var(--deliveroo-teal-dark))",
+          light: "hsl(var(--deliveroo-teal-light))",
+        },
+        "deliveroo-orange": {
+          DEFAULT: "hsl(var(--deliveroo-orange))",
+          dark: "hsl(var(--deliveroo-orange-dark))",
+        },
+        "deliveroo-navy": {
+          DEFAULT: "hsl(var(--deliveroo-navy))",
+          light: "hsl(var(--deliveroo-navy-light))",
+        },
+
+        /* System Colors */
         border: "hsl(var(--border))",
         input: "hsl(var(--input))",
         ring: "hsl(var(--ring))",
@@ -38,6 +57,14 @@ export default {
         accent: {
           DEFAULT: "hsl(var(--accent))",
           foreground: "hsl(var(--accent-foreground))",
+        },
+        success: {
+          DEFAULT: "hsl(var(--success))",
+          foreground: "hsl(var(--success-foreground))",
+        },
+        warning: {
+          DEFAULT: "hsl(var(--warning))",
+          foreground: "hsl(var(--warning-foreground))",
         },
         popover: {
           DEFAULT: "hsl(var(--popover))",
