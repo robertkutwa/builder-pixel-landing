@@ -30,6 +30,7 @@ function App() {
               <Route path="/admin" element={<AdminDashboard />} />
               <Route path="/parcels/new" element={<CreateParcel />} />
               <Route path="/parcels/:id" element={<ParcelDetails />} />
+              <Route path="/quote" element={<QuoteCalculator />} />
 
               {/* Placeholder routes - to be implemented */}
               <Route
