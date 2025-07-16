@@ -107,7 +107,7 @@ export default function QuoteCalculator() {
       setFormData((prev) => ({
         ...prev,
         [parent]: {
-          ...prev[parent as keyof QuoteRequest],
+          ...(prev[parent as keyof QuoteRequest] as any),
           [child]: value,
         },
       }));
