@@ -189,60 +189,13 @@ export default function ParcelDetails() {
         </div>
       </div>
 
-      {/* Status and Progress */}
-      <Card className="mb-8">
-        <CardHeader>
-          <div className="flex items-center justify-between">
-            <div className="flex items-center space-x-3">
-              {getStatusIcon(parcel.status)}
-              <div>
-                <CardTitle className="text-xl">
-                  {STATUS_LABELS[parcel.status as keyof typeof STATUS_LABELS]}
-                </CardTitle>
-                <CardDescription>Current shipment status</CardDescription>
-              </div>
-            </div>
-            <Badge
-              variant="secondary"
-              className={cn(
-                "text-sm px-3 py-1",
-                parcel.status === "delivered" &&
-                  "bg-success/10 text-success border-success/20",
-                parcel.status === "cancelled" &&
-                  "bg-destructive/10 text-destructive border-destructive/20",
-                ["in_transit", "picked_up", "out_for_delivery"].includes(
-                  parcel.status,
-                ) && "bg-primary/10 text-primary border-primary/20",
-              )}
-            >
-              {STATUS_LABELS[parcel.status as keyof typeof STATUS_LABELS]}
-            </Badge>
-          </div>
-        </CardHeader>
-        <CardContent>
-          <div className="space-y-4">
-            <div>
-              <div className="flex justify-between text-sm mb-2">
-                <span>Delivery Progress</span>
-                <span>{getProgressValue(parcel.status)}%</span>
-              </div>
-              <Progress
-                value={getProgressValue(parcel.status)}
-                className="h-3"
-              />
-            </div>
-            {parcel.estimatedDeliveryAt && (
-              <div className="flex items-center space-x-2 text-sm">
-                <Clock className="w-4 h-4 text-muted-foreground" />
-                <span>
-                  Estimated delivery:{" "}
-                  {new Date(parcel.estimatedDeliveryAt).toLocaleString()}
-                </span>
-              </div>
-            )}
-          </div>
-        </CardContent>
-      </Card>
+      {/* Real-time Tracking */}
+      <ParcelTracking
+        parcel={parcel}
+        onRefresh={fetchParcelDetails}
+        showMap={true}
+        className="mb-8"
+      />
 
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
         {/* Main Details */}
