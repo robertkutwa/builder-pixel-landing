@@ -11,19 +11,15 @@ import {
 } from "../components/ui/card";
 import { Badge } from "../components/ui/badge";
 import { Separator } from "../components/ui/separator";
-import { Progress } from "../components/ui/progress";
 import { Alert, AlertDescription } from "../components/ui/alert";
+import { ParcelTracking } from "../components/ui/parcel-tracking";
 import {
   Package,
   MapPin,
-  Clock,
   User,
   DollarSign,
   Calendar,
   AlertCircle,
-  CheckCircle,
-  XCircle,
-  Truck,
   ArrowLeft,
   Edit,
   Phone,
