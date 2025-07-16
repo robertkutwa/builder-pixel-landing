@@ -13,7 +13,7 @@ import {
   QuoteResponse,
   WEIGHT_LIMITS,
   WEIGHT_PRICES,
-} from "@shared/api";
+} from "../../shared/api.js";
 
 // Mock database
 const mockParcels: Parcel[] = [
