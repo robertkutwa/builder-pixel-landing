@@ -417,7 +417,7 @@ export const handleUpdateParcelStatus: RequestHandler = async (req, res) => {
     };
 
     // Update parcel
-    const updatedParcel = {
+    const updatedParcel: Parcel = {
       ...parcel,
       status: validatedData.status,
       currentLocation: validatedData.location || parcel.currentLocation,
