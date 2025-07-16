@@ -2,6 +2,11 @@
 // DELIVEROO API TYPES - Shared between client and server
 // ============================================================================
 
+// Demo Response for testing
+export interface DemoResponse {
+  message: string;
+}
+
 // User Management Types
 export type UserRole = "customer" | "admin" | "courier";
 
