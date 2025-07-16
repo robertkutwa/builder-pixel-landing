@@ -1,6 +1,21 @@
 import express from "express";
 import cors from "cors";
 import { handleDemo } from "./routes/demo";
+import {
+  handleRegister,
+  handleLogin,
+  handleGetProfile,
+  requireAuth,
+  requireRole,
+} from "./routes/auth";
+import {
+  handleGetQuote,
+  handleCreateParcel,
+  handleGetParcels,
+  handleGetParcel,
+  handleUpdateParcelStatus,
+  handleCancelParcel,
+} from "./routes/parcels";
 
 export function createServer() {
   const app = express();
@@ -10,12 +25,31 @@ export function createServer() {
   app.use(express.json());
   app.use(express.urlencoded({ extended: true }));
 
-  // Example API routes
+  // API ping endpoint
   app.get("/api/ping", (_req, res) => {
-    res.json({ message: "Hello from Express server v2!" });
+    res.json({ message: "Deliveroo API v1.0 - Ready for courier services!" });
   });
 
+  // Demo endpoint
   app.get("/api/demo", handleDemo);
+
+  // Authentication routes
+  app.post("/api/auth/register", handleRegister);
+  app.post("/api/auth/login", handleLogin);
+  app.get("/api/auth/profile", requireAuth, handleGetProfile);
+
+  // Parcel routes
+  app.post("/api/parcels/quote", handleGetQuote);
+  app.post("/api/parcels", requireAuth, handleCreateParcel);
+  app.get("/api/parcels", requireAuth, handleGetParcels);
+  app.get("/api/parcels/:id", requireAuth, handleGetParcel);
+  app.put(
+    "/api/parcels/:id/status",
+    requireAuth,
+    requireRole(["admin", "courier"]),
+    handleUpdateParcelStatus,
+  );
+  app.delete("/api/parcels/:id", requireAuth, handleCancelParcel);
 
   return app;
 }
