@@ -32,45 +32,13 @@ function App() {
               {/* Protected Routes */}
               <Route path="/dashboard" element={<Dashboard />} />
               <Route path="/admin" element={<AdminDashboard />} />
+              <Route path="/parcels" element={<ParcelsPage />} />
               <Route path="/parcels/new" element={<CreateParcel />} />
               <Route path="/parcels/:id" element={<ParcelDetails />} />
+              <Route path="/parcels/:id/edit" element={<EditParcel />} />
+              <Route path="/profile" element={<ProfilePage />} />
+              <Route path="/settings" element={<SettingsPage />} />
               <Route path="/quote" element={<QuoteCalculator />} />
-
-              {/* Placeholder routes - to be implemented */}
-              <Route
-                path="/parcels"
-                element={
-                  <PlaceholderPage
-                    title="My Parcels"
-                    description="View and manage your parcel deliveries"
-                    actionText="Go to Dashboard"
-                    actionPath="/dashboard"
-                  />
-                }
-              />
-
-              <Route
-                path="/profile"
-                element={
-                  <PlaceholderPage
-                    title="Profile"
-                    description="Manage your account settings"
-                    actionText="Back to Dashboard"
-                    actionPath="/dashboard"
-                  />
-                }
-              />
-              <Route
-                path="/settings"
-                element={
-                  <PlaceholderPage
-                    title="Settings"
-                    description="Configure your preferences"
-                    actionText="Back to Dashboard"
-                    actionPath="/dashboard"
-                  />
-                }
-              />
 
               {/* Catch-all route */}
               <Route path="*" element={<NotFound />} />
