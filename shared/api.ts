@@ -143,12 +143,8 @@ export interface CreateParcelRequest {
   value: number;
   size: ParcelSize;
   specialInstructions?: string;
-  pickupLocation: Omit<Location, "additionalInfo"> & {
-    additionalInfo?: string;
-  };
-  deliveryLocation: Omit<Location, "additionalInfo"> & {
-    additionalInfo?: string;
-  };
+  pickupLocation: Location;
+  deliveryLocation: Location;
   pickupScheduledAt?: string;
 }
 
