@@ -169,7 +169,7 @@ export default function AdminDashboard() {
     }
   };
 
-  const getStatusIcon = (status: string) => {
+    const getStatusIcon = (status) => {
     switch (status) {
       case "delivered":
         return <CheckCircle className="w-4 h-4 text-success" />;
@@ -183,7 +183,7 @@ export default function AdminDashboard() {
     }
   };
 
-  const getStatusBadgeVariant = (status: string) => {
+    const getStatusBadgeVariant = (status) => {
     switch (status) {
       case "delivered":
         return "bg-success/10 text-success border-success/20";
