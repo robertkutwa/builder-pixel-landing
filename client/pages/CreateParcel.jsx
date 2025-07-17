@@ -91,13 +91,13 @@ export default function CreateParcel() {
     { value: "extra_heavy", label: "Extra Heavy (30-100kg)", price: 50 },
   ];
 
-    const handleInputChange = (field, value) => {
+  const handleInputChange = (field, value) => {
     if (field.includes(".")) {
       const [parent, child] = field.split(".");
       setFormData((prev) => ({
         ...prev,
         [parent]: {
-                    ...prev[parent],
+          ...prev[parent],
           [child]: value,
         },
       }));
@@ -114,7 +114,7 @@ export default function CreateParcel() {
       setIsLoading(true);
       setError(null);
 
-            const quoteRequest = {
+      const quoteRequest = {
         pickupLocation: {
           latitude: formData.pickupLocation.latitude,
           longitude: formData.pickupLocation.longitude,
@@ -139,7 +139,7 @@ export default function CreateParcel() {
         body: JSON.stringify(quoteRequest),
       });
 
-            const data = await response.json();
+      const data = await response.json();
 
       if (data.success && data.data) {
         setQuote(data.data);
@@ -163,7 +163,7 @@ export default function CreateParcel() {
         body: JSON.stringify(formData),
       });
 
-      const data: ApiResponse = await response.json();
+      const data = await response.json();
 
       if (data.success) {
         navigate("/dashboard");
