@@ -122,7 +122,7 @@ export default function EditParcel() {
       setFormData((prev) => ({
         ...prev,
         [parent]: {
-          ...(prev[parent as keyof typeof prev] as any),
+                    ...prev[parent],
           [child]: value,
         },
       }));
