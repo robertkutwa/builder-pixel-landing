@@ -110,9 +110,9 @@ export function ParcelTracking({
   onRefresh,
   showMap = true,
   className,
-}: ParcelTrackingProps) {
+}) {
   const [isRefreshing, setIsRefreshing] = useState(false);
-  const [lastUpdated, setLastUpdated] = useState<Date>(new Date());
+    const [lastUpdated, setLastUpdated] = useState(new Date());
 
   // Auto-refresh every 30 seconds for active parcels
   useEffect(() => {
