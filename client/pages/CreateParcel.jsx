@@ -139,7 +139,7 @@ export default function CreateParcel() {
         body: JSON.stringify(quoteRequest),
       });
 
-      const data: ApiResponse<QuoteResponse> = await response.json();
+            const data = await response.json();
 
       if (data.success && data.data) {
         setQuote(data.data);
