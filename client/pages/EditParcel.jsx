@@ -102,7 +102,7 @@ export default function EditParcel() {
       setError(null);
 
       const response = await authenticatedFetch(`/api/parcels/${id}`);
-            const data = await response.json();
+      const data = await response.json();
 
       if (data.success && data.data) {
         setParcel(data.data);
@@ -116,13 +116,13 @@ export default function EditParcel() {
     }
   };
 
-    const handleInputChange = (field, value) => {
+  const handleInputChange = (field, value) => {
     if (field.includes(".")) {
       const [parent, child] = field.split(".");
       setFormData((prev) => ({
         ...prev,
         [parent]: {
-                    ...prev[parent],
+          ...prev[parent],
           [child]: value,
         },
       }));
@@ -143,7 +143,7 @@ export default function EditParcel() {
       setError(null);
       setSuccess(null);
 
-      const updateData: UpdateParcelRequest = {
+      const updateData = {
         deliveryLocation: formData.deliveryLocation,
         specialInstructions: formData.specialInstructions,
         pickupScheduledAt: formData.pickupScheduledAt || undefined,
@@ -177,7 +177,7 @@ export default function EditParcel() {
         method: "DELETE",
       });
 
-            const data = await response.json();
+      const data = await response.json();
 
       if (data.success) {
         setCancelDialogOpen(false);
