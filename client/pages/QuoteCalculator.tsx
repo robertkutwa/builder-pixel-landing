@@ -33,12 +33,7 @@ import {
   CheckCircle,
   Truck,
 } from "lucide-react";
-import {
-  QuoteRequest,
-  QuoteResponse,
-  ApiResponse,
-  WeightCategory,
-} from "@shared/api";
+
 import { cn } from "../lib/utils";
 
 export default function QuoteCalculator() {
@@ -46,10 +41,10 @@ export default function QuoteCalculator() {
   const navigate = useNavigate();
 
   const [isLoading, setIsLoading] = useState(false);
-  const [error, setError] = useState<string | null>(null);
-  const [quote, setQuote] = useState<QuoteResponse | null>(null);
+  const [error, setError] = useState(null);
+  const [quote, setQuote] = useState(null);
 
-  const [formData, setFormData] = useState<QuoteRequest>({
+  const [formData, setFormData] = useState({
     pickupLocation: {
       latitude: 40.7128,
       longitude: -74.006,
