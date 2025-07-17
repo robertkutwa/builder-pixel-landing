@@ -25,24 +25,12 @@ import {
   Maximize2,
   Minimize2,
 } from "lucide-react";
-import { Parcel, ParcelStatusUpdate, STATUS_LABELS } from "@shared/api";
+import { STATUS_LABELS } from "../../../shared/api.js";
 import { cn } from "../../lib/utils";
 
-interface ParcelTrackingProps {
-  parcel: Parcel;
-  onRefresh?: () => void;
-  showMap?: boolean;
-  className?: string;
-}
-
 // Mock Google Maps component (in real implementation, use @googlemaps/react-wrapper)
-const GoogleMap: React.FC<{
-  pickup: { lat: number; lng: number };
-  delivery: { lat: number; lng: number };
-  current?: { lat: number; lng: number };
-  className?: string;
-}> = ({ pickup, delivery, current, className }) => {
-  const mapRef = useRef<HTMLDivElement>(null);
+const GoogleMap = ({ pickup, delivery, current, className }) => {
+  const mapRef = useRef(null);
   const [isExpanded, setIsExpanded] = useState(false);
 
   return (
