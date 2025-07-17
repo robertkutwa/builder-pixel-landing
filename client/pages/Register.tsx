@@ -21,12 +21,11 @@ import {
 } from "../components/ui/select";
 import { Alert, AlertDescription } from "../components/ui/alert";
 import { Truck, Mail, Lock, User, Phone, Loader2 } from "lucide-react";
-import { RegisterRequest, UserRole } from "@shared/api";
 
 export default function Register() {
   const { register, isLoading, error } = useAuth();
   const navigate = useNavigate();
-  const [formData, setFormData] = useState<RegisterRequest>({
+  const [formData, setFormData] = useState({
     email: "",
     password: "",
     firstName: "",
@@ -35,9 +34,9 @@ export default function Register() {
     role: "customer",
   });
   const [confirmPassword, setConfirmPassword] = useState("");
-  const [formError, setFormError] = useState<string | null>(null);
+  const [formError, setFormError] = useState(null);
 
-  const handleSubmit = async (e: React.FormEvent) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     setFormError(null);
 
@@ -65,12 +64,12 @@ export default function Register() {
     }
   };
 
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+  const handleChange = (e) => {
     const { name, value } = e.target;
     setFormData((prev) => ({ ...prev, [name]: value }));
   };
 
-  const handleRoleChange = (value: UserRole) => {
+  const handleRoleChange = (value) => {
     setFormData((prev) => ({ ...prev, role: value }));
   };
 
