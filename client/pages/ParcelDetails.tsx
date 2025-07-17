@@ -31,18 +31,18 @@ import {
   Weight,
   Ruler,
 } from "lucide-react";
-import { Parcel, ApiResponse, STATUS_LABELS } from "@shared/api";
+import { STATUS_LABELS } from "../../shared/api.js";
 import { cn } from "../lib/utils";
 
 export default function ParcelDetails() {
-  const { id } = useParams<{ id: string }>();
+  const { id } = useParams();
   const { user } = useAuth();
   const navigate = useNavigate();
   const authenticatedFetch = useAuthenticatedFetch();
 
-  const [parcel, setParcel] = useState<Parcel | null>(null);
+  const [parcel, setParcel] = useState(null);
   const [isLoading, setIsLoading] = useState(true);
-  const [error, setError] = useState<string | null>(null);
+  const [error, setError] = useState(null);
 
   useEffect(() => {
     if (id && user) {
@@ -56,7 +56,7 @@ export default function ParcelDetails() {
       setError(null);
 
       const response = await authenticatedFetch(`/api/parcels/${id}`);
-      const data: ApiResponse<Parcel> = await response.json();
+      const data = await response.json();
 
       if (data.success && data.data) {
         setParcel(data.data);
