@@ -34,15 +34,7 @@ import {
   CheckCircle,
   ArrowLeft,
 } from "lucide-react";
-import {
-  CreateParcelRequest,
-  QuoteRequest,
-  QuoteResponse,
-  ApiResponse,
-  Location,
-  ParcelSize,
-  WeightCategory,
-} from "@shared/api";
+
 import { cn } from "../lib/utils";
 
 export default function CreateParcel() {
@@ -52,10 +44,10 @@ export default function CreateParcel() {
 
   const [currentStep, setCurrentStep] = useState(1);
   const [isLoading, setIsLoading] = useState(false);
-  const [error, setError] = useState<string | null>(null);
-  const [quote, setQuote] = useState<QuoteResponse | null>(null);
+  const [error, setError] = useState(null);
+  const [quote, setQuote] = useState(null);
 
-  const [formData, setFormData] = useState<CreateParcelRequest>({
+  const [formData, setFormData] = useState({
     description: "",
     value: 0,
     size: {
