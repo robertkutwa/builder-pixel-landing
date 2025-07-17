@@ -23,7 +23,7 @@ import {
   BarChart3,
   Settings,
 } from "lucide-react";
-import { cn } from "@/lib/utils";
+import { cn } from "../../lib/utils.js";
 
 export function Navigation() {
   const { user, logout } = useAuth();
@@ -36,7 +36,7 @@ export function Navigation() {
     navigate("/");
   };
 
-  const getRoleColor = (role: string) => {
+  const getRoleColor = (role) => {
     switch (role) {
       case "admin":
         return "bg-destructive text-destructive-foreground";
