@@ -152,7 +152,7 @@ export default function AdminDashboard() {
       if (data.success && data.data) {
         // Update the parcel in our local state
         setParcels((prev) =>
-          prev.map((p) => (p.id === selectedParcel.id ? data.data! : p)),
+                    prev.map((p) => (p.id === selectedParcel.id ? data.data : p)),
         );
         setUpdateDialogOpen(false);
         setSelectedParcel(null);
