@@ -114,7 +114,7 @@ export default function CreateParcel() {
       setIsLoading(true);
       setError(null);
 
-      const quoteRequest: QuoteRequest = {
+            const quoteRequest = {
         pickupLocation: {
           latitude: formData.pickupLocation.latitude,
           longitude: formData.pickupLocation.longitude,
