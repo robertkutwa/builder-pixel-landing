@@ -91,13 +91,13 @@ export default function CreateParcel() {
     { value: "extra_heavy", label: "Extra Heavy (30-100kg)", price: 50 },
   ];
 
-  const handleInputChange = (field: string, value: any) => {
+    const handleInputChange = (field, value) => {
     if (field.includes(".")) {
       const [parent, child] = field.split(".");
       setFormData((prev) => ({
         ...prev,
         [parent]: {
-          ...(prev[parent as keyof CreateParcelRequest] as any),
+                    ...prev[parent],
           [child]: value,
         },
       }));
