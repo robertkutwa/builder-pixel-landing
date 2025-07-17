@@ -344,9 +344,7 @@ export default function Dashboard() {
                           )}
                         >
                           {
-                            STATUS_LABELS[
-                              parcel.status as keyof typeof STATUS_LABELS
-                            ]
+                                                        STATUS_LABELS[parcel.status]
                           }
                         </Badge>
                         <div className="text-sm text-muted-foreground">
