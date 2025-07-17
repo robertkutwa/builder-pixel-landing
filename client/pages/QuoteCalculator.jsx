@@ -96,13 +96,13 @@ export default function QuoteCalculator() {
     { from: "Miami, FL", to: "Orlando, FL", distance: "383 km" },
   ];
 
-    const handleInputChange = (field, value) => {
+  const handleInputChange = (field, value) => {
     if (field.includes(".")) {
       const [parent, child] = field.split(".");
       setFormData((prev) => ({
         ...prev,
         [parent]: {
-                    ...prev[parent],
+          ...prev[parent],
           [child]: value,
         },
       }));
@@ -138,7 +138,7 @@ export default function QuoteCalculator() {
         body: JSON.stringify(formData),
       });
 
-            const data = await response.json();
+      const data = await response.json();
 
       if (data.success && data.data) {
         setQuote(data.data);
@@ -180,7 +180,7 @@ export default function QuoteCalculator() {
     }
   };
 
-  const getWeightCategory = (weight: number): WeightCategory => {
+  const getWeightCategory = (weight) => {
     if (weight <= 2) return "light";
     if (weight <= 10) return "medium";
     if (weight <= 30) return "heavy";
