@@ -70,7 +70,7 @@ export default function ParcelDetails() {
     }
   };
 
-  const getStatusIcon = (status: string) => {
+    const getStatusIcon = (status) => {
     switch (status) {
       case "delivered":
         return <CheckCircle className="w-5 h-5 text-success" />;
@@ -84,7 +84,7 @@ export default function ParcelDetails() {
     }
   };
 
-  const getProgressValue = (status: string) => {
+    const getProgressValue = (status) => {
     switch (status) {
       case "pending":
         return 10;
