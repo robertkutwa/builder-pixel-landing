@@ -56,11 +56,7 @@ import {
   Lock,
   Trash2,
 } from "lucide-react";
-import {
-  User as UserType,
-  UserRole,
-  NotificationPreferences,
-} from "@shared/api";
+
 import { cn } from "../lib/utils";
 
 export default function ProfilePage() {
@@ -68,8 +64,8 @@ export default function ProfilePage() {
   const navigate = useNavigate();
 
   const [isLoading, setIsLoading] = useState(false);
-  const [error, setError] = useState<string | null>(null);
-  const [success, setSuccess] = useState<string | null>(null);
+  const [error, setError] = useState(null);
+  const [success, setSuccess] = useState(null);
 
   // Profile form state
   const [profileData, setProfileData] = useState({
@@ -87,7 +83,7 @@ export default function ProfilePage() {
   });
 
   // Notification preferences
-  const [notifications, setNotifications] = useState<NotificationPreferences>({
+  const [notifications, setNotifications] = useState({
     emailNotifications: true,
     smsNotifications: false,
     statusUpdates: true,
