@@ -70,7 +70,7 @@ export default function ParcelDetails() {
     }
   };
 
-    const getStatusIcon = (status) => {
+  const getStatusIcon = (status) => {
     switch (status) {
       case "delivered":
         return <CheckCircle className="w-5 h-5 text-success" />;
@@ -84,7 +84,7 @@ export default function ParcelDetails() {
     }
   };
 
-    const getProgressValue = (status) => {
+  const getProgressValue = (status) => {
     switch (status) {
       case "pending":
         return 10;
@@ -385,11 +385,7 @@ export default function ParcelDetails() {
                       <div className="flex-1 pb-4">
                         <div className="flex items-center space-x-2 mb-1">
                           <span className="font-medium">
-                            {
-                              STATUS_LABELS[
-                                status.status as keyof typeof STATUS_LABELS
-                              ]
-                            }
+                            {STATUS_LABELS[status.status]}
                           </span>
                           <span className="text-sm text-muted-foreground">
                             by {status.updatedByName}
