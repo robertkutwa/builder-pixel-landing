@@ -60,39 +60,29 @@ import {
   SortDesc,
   ArrowUpDown,
 } from "lucide-react";
-import {
-  Parcel,
-  ApiResponse,
-  PaginatedResponse,
-  ParcelStatus,
-  STATUS_LABELS,
-  STATUS_COLORS,
-} from "@shared/api";
+import { STATUS_LABELS, STATUS_COLORS } from "../../shared/api.js";
 import { cn } from "../lib/utils";
-
-type SortField = "createdAt" | "status" | "totalCost" | "trackingNumber";
-type SortOrder = "asc" | "desc";
 
 export default function ParcelsPage() {
   const { user } = useAuth();
   const navigate = useNavigate();
   const authenticatedFetch = useAuthenticatedFetch();
 
-  const [parcels, setParcels] = useState<Parcel[]>([]);
-  const [filteredParcels, setFilteredParcels] = useState<Parcel[]>([]);
+  const [parcels, setParcels] = useState([]);
+  const [filteredParcels, setFilteredParcels] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
-  const [error, setError] = useState<string | null>(null);
+  const [error, setError] = useState(null);
 
   // Filters and search
   const [searchTerm, setSearchTerm] = useState("");
-  const [statusFilter, setStatusFilter] = useState<string>("all");
-  const [dateFilter, setDateFilter] = useState<string>("all");
-  const [sortField, setSortField] = useState<SortField>("createdAt");
-  const [sortOrder, setSortOrder] = useState<SortOrder>("desc");
+  const [statusFilter, setStatusFilter] = useState("all");
+  const [dateFilter, setDateFilter] = useState("all");
+  const [sortField, setSortField] = useState("createdAt");
+  const [sortOrder, setSortOrder] = useState("desc");
 
   // UI state
   const [cancelDialogOpen, setCancelDialogOpen] = useState(false);
-  const [selectedParcel, setSelectedParcel] = useState<Parcel | null>(null);
+  const [selectedParcel, setSelectedParcel] = useState(null);
   const [cancelling, setCancelling] = useState(false);
 
   // Pagination
@@ -115,8 +105,7 @@ export default function ParcelsPage() {
       setError(null);
 
       const response = await authenticatedFetch("/api/parcels?limit=100");
-      const data: ApiResponse<PaginatedResponse<Parcel>> =
-        await response.json();
+      const data = await response.json();
 
       if (data.success && data.data) {
         setParcels(data.data.items);
@@ -233,7 +222,7 @@ export default function ParcelsPage() {
         },
       );
 
-      const data: ApiResponse<Parcel> = await response.json();
+      const data = await response.json();
 
       if (data.success) {
         // Update the parcel in local state
@@ -303,7 +292,7 @@ export default function ParcelsPage() {
     }
   };
 
-  const canCancelParcel = (parcel: Parcel) => {
+  const canCancelParcel = (parcel) => {
     return (
       user &&
       user.id === parcel.customerId &&
@@ -311,7 +300,7 @@ export default function ParcelsPage() {
     );
   };
 
-  const handleSort = (field: SortField) => {
+  const handleSort = (field) => {
     if (sortField === field) {
       setSortOrder(sortOrder === "asc" ? "desc" : "asc");
     } else {
@@ -320,7 +309,7 @@ export default function ParcelsPage() {
     }
   };
 
-  const getSortIcon = (field: SortField) => {
+  const getSortIcon = (field) => {
     if (sortField !== field) {
       return <ArrowUpDown className="w-4 h-4 text-muted-foreground" />;
     }
