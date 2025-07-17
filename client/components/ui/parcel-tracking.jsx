@@ -174,7 +174,7 @@ export function ParcelTracking({
     }
   };
 
-  const getStatusColor = (status: string) => {
+    const getStatusColor = (status) => {
     switch (status) {
       case "delivered":
         return "bg-success/10 text-success border-success/20";
