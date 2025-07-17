@@ -201,7 +201,7 @@ export function ParcelTracking({
               {getStatusIcon(parcel.status)}
               <div>
                 <CardTitle className="text-xl">
-                  {STATUS_LABELS[parcel.status as keyof typeof STATUS_LABELS]}
+                  {STATUS_LABELS[parcel.status]}
                 </CardTitle>
                 <CardDescription>
                   {parcel.trackingNumber} • Last updated{" "}
@@ -214,7 +214,7 @@ export function ParcelTracking({
                 variant="secondary"
                 className={cn("text-sm", getStatusColor(parcel.status))}
               >
-                {STATUS_LABELS[parcel.status as keyof typeof STATUS_LABELS]}
+                {STATUS_LABELS[parcel.status]}
               </Badge>
               <Button
                 variant="outline"
@@ -277,7 +277,7 @@ export function ParcelTracking({
                     <span>
                       Your parcel is currently{" "}
                       {STATUS_LABELS[
-                        parcel.status as keyof typeof STATUS_LABELS
+                        parcel.status
                       ].toLowerCase()}
                     </span>
                     <span className="text-xs text-muted-foreground">
