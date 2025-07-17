@@ -189,7 +189,7 @@ export default function ProfilePage() {
     }
   };
 
-    const getRoleColor = (role) => {
+  const getRoleColor = (role) => {
     switch (role) {
       case "admin":
         return "bg-destructive text-destructive-foreground";
@@ -200,7 +200,7 @@ export default function ProfilePage() {
     }
   };
 
-  const getRoleLabel = (role: UserRole) => {
+  const getRoleLabel = (role) => {
     switch (role) {
       case "admin":
         return "Administrator";
