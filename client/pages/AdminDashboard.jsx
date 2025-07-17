@@ -152,7 +152,7 @@ export default function AdminDashboard() {
       if (data.success && data.data) {
         // Update the parcel in our local state
         setParcels((prev) =>
-                    prev.map((p) => (p.id === selectedParcel.id ? data.data : p)),
+          prev.map((p) => (p.id === selectedParcel.id ? data.data : p)),
         );
         setUpdateDialogOpen(false);
         setSelectedParcel(null);
@@ -169,7 +169,7 @@ export default function AdminDashboard() {
     }
   };
 
-    const getStatusIcon = (status) => {
+  const getStatusIcon = (status) => {
     switch (status) {
       case "delivered":
         return <CheckCircle className="w-4 h-4 text-success" />;
@@ -183,7 +183,7 @@ export default function AdminDashboard() {
     }
   };
 
-    const getStatusBadgeVariant = (status) => {
+  const getStatusBadgeVariant = (status) => {
     switch (status) {
       case "delivered":
         return "bg-success/10 text-success border-success/20";
@@ -454,13 +454,7 @@ export default function AdminDashboard() {
                           >
                             <span className="flex items-center space-x-1">
                               {getStatusIcon(parcel.status)}
-                              <span>
-                                {
-                                  STATUS_LABELS[
-                                    parcel.status as keyof typeof STATUS_LABELS
-                                  ]
-                                }
-                              </span>
+                              <span>{STATUS_LABELS[parcel.status]}</span>
                             </span>
                           </Badge>
                         </TableCell>
