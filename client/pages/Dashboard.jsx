@@ -87,7 +87,7 @@ export default function Dashboard() {
     }
   };
 
-    const getStatusIcon = (status) => {
+  const getStatusIcon = (status) => {
     switch (status) {
       case "delivered":
         return <CheckCircle className="w-4 h-4" />;
@@ -101,7 +101,7 @@ export default function Dashboard() {
     }
   };
 
-    const getProgressValue = (status) => {
+  const getProgressValue = (status) => {
     switch (status) {
       case "pending":
         return 10;
@@ -343,9 +343,7 @@ export default function Dashboard() {
                               "bg-primary/10 text-primary",
                           )}
                         >
-                          {
-                                                        STATUS_LABELS[parcel.status]
-                          }
+                          {STATUS_LABELS[parcel.status]}
                         </Badge>
                         <div className="text-sm text-muted-foreground">
                           ${parcel.totalCost}
@@ -407,11 +405,7 @@ export default function Dashboard() {
                             "bg-primary/10 text-primary",
                         )}
                       >
-                        {
-                          STATUS_LABELS[
-                            parcel.status as keyof typeof STATUS_LABELS
-                          ]
-                        }
+                        {STATUS_LABELS[parcel.status]}
                       </Badge>
                     </div>
 
@@ -536,11 +530,7 @@ export default function Dashboard() {
                             "bg-destructive/10 text-destructive",
                         )}
                       >
-                        {
-                          STATUS_LABELS[
-                            parcel.status as keyof typeof STATUS_LABELS
-                          ]
-                        }
+                        {STATUS_LABELS[parcel.status]}
                       </Badge>
                       <div className="text-sm font-medium">
                         ${parcel.totalCost}
