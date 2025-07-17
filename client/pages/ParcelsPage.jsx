@@ -243,7 +243,7 @@ export default function ParcelsPage() {
     }
   };
 
-  const getStatusIcon = (status: string) => {
+    const getStatusIcon = (status) => {
     switch (status) {
       case "delivered":
         return <CheckCircle className="w-4 h-4 text-success" />;
@@ -257,7 +257,7 @@ export default function ParcelsPage() {
     }
   };
 
-  const getStatusBadgeVariant = (status: string) => {
+    const getStatusBadgeVariant = (status) => {
     switch (status) {
       case "delivered":
         return "bg-success/10 text-success border-success/20";
@@ -271,7 +271,7 @@ export default function ParcelsPage() {
     }
   };
 
-  const getProgressValue = (status: string) => {
+    const getProgressValue = (status) => {
     switch (status) {
       case "pending":
         return 10;
