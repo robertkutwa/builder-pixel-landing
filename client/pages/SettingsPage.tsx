@@ -49,11 +49,11 @@ export default function SettingsPage() {
   const navigate = useNavigate();
 
   const [isLoading, setIsLoading] = useState(false);
-  const [success, setSuccess] = useState<string | null>(null);
-  const [error, setError] = useState<string | null>(null);
+  const [success, setSuccess] = useState(null);
+  const [error, setError] = useState(null);
 
   // Appearance settings
-  const [theme, setTheme] = useState<"light" | "dark" | "system">("system");
+  const [theme, setTheme] = useState("system");
   const [language, setLanguage] = useState("en");
   const [timezone, setTimezone] = useState("America/New_York");
 
