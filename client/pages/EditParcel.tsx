@@ -42,34 +42,24 @@ import {
   Calendar,
   DollarSign,
 } from "lucide-react";
-import {
-  Parcel,
-  UpdateParcelRequest,
-  ApiResponse,
-  Location,
-  ParcelSize,
-} from "@shared/api";
+
 import { cn } from "../lib/utils";
 
 export default function EditParcel() {
-  const { id } = useParams<{ id: string }>();
+  const { id } = useParams();
   const { user } = useAuth();
   const navigate = useNavigate();
   const authenticatedFetch = useAuthenticatedFetch();
 
-  const [parcel, setParcel] = useState<Parcel | null>(null);
+  const [parcel, setParcel] = useState(null);
   const [isLoading, setIsLoading] = useState(true);
   const [isSaving, setIsSaving] = useState(false);
   const [isCancelling, setIsCancelling] = useState(false);
-  const [error, setError] = useState<string | null>(null);
-  const [success, setSuccess] = useState<string | null>(null);
+  const [error, setError] = useState(null);
+  const [success, setSuccess] = useState(null);
 
   // Form state
-  const [formData, setFormData] = useState<{
-    deliveryLocation: Location;
-    specialInstructions: string;
-    pickupScheduledAt: string;
-  }>({
+  const [formData, setFormData] = useState({
     deliveryLocation: {
       latitude: 0,
       longitude: 0,
