@@ -102,7 +102,7 @@ export default function EditParcel() {
       setError(null);
 
       const response = await authenticatedFetch(`/api/parcels/${id}`);
-      const data: ApiResponse<Parcel> = await response.json();
+            const data = await response.json();
 
       if (data.success && data.data) {
         setParcel(data.data);
@@ -177,7 +177,7 @@ export default function EditParcel() {
         method: "DELETE",
       });
 
-      const data: ApiResponse<Parcel> = await response.json();
+            const data = await response.json();
 
       if (data.success) {
         setCancelDialogOpen(false);
