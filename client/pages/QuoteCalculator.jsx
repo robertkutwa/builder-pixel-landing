@@ -96,13 +96,13 @@ export default function QuoteCalculator() {
     { from: "Miami, FL", to: "Orlando, FL", distance: "383 km" },
   ];
 
-  const handleInputChange = (field: string, value: any) => {
+    const handleInputChange = (field, value) => {
     if (field.includes(".")) {
       const [parent, child] = field.split(".");
       setFormData((prev) => ({
         ...prev,
         [parent]: {
-          ...(prev[parent as keyof QuoteRequest] as any),
+                    ...prev[parent],
           [child]: value,
         },
       }));
