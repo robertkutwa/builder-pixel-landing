@@ -139,7 +139,7 @@ export function ParcelTracking({
     setIsRefreshing(false);
   };
 
-  const getStatusIcon = (status: string) => {
+    const getStatusIcon = (status) => {
     switch (status) {
       case "delivered":
         return <CheckCircle className="w-4 h-4 text-success" />;
