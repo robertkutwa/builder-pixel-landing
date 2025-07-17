@@ -34,14 +34,7 @@ import {
   TrendingUp,
   BarChart3,
 } from "lucide-react";
-import {
-  Parcel,
-  ApiResponse,
-  PaginatedResponse,
-  CustomerDashboardStats,
-  STATUS_COLORS,
-  STATUS_LABELS,
-} from "@shared/api";
+import { STATUS_COLORS, STATUS_LABELS } from "../../shared/api.js";
 import { cn } from "../lib/utils";
 
 export default function Dashboard() {
@@ -49,8 +42,8 @@ export default function Dashboard() {
   const navigate = useNavigate();
   const authenticatedFetch = useAuthenticatedFetch();
 
-  const [parcels, setParcels] = useState<Parcel[]>([]);
-  const [stats, setStats] = useState<CustomerDashboardStats | null>(null);
+  const [parcels, setParcels] = useState([]);
+  const [stats, setStats] = useState(null);
   const [isLoading, setIsLoading] = useState(true);
   const [activeTab, setActiveTab] = useState("overview");
 
@@ -66,15 +59,14 @@ export default function Dashboard() {
 
       // Fetch parcels
       const parcelsResponse = await authenticatedFetch("/api/parcels?limit=10");
-      const parcelsData: ApiResponse<PaginatedResponse<Parcel>> =
-        await parcelsResponse.json();
+      const parcelsData = await parcelsResponse.json();
 
       if (parcelsData.success && parcelsData.data) {
         setParcels(parcelsData.data.items);
 
         // Calculate stats from parcels
         const items = parcelsData.data.items;
-        const calculatedStats: CustomerDashboardStats = {
+        const calculatedStats = {
           totalParcels: items.length,
           pendingParcels: items.filter((p) =>
             ["pending", "confirmed"].includes(p.status),
