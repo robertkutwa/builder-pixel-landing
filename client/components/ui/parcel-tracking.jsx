@@ -112,7 +112,7 @@ export function ParcelTracking({
   className,
 }) {
   const [isRefreshing, setIsRefreshing] = useState(false);
-    const [lastUpdated, setLastUpdated] = useState(new Date());
+  const [lastUpdated, setLastUpdated] = useState(new Date());
 
   // Auto-refresh every 30 seconds for active parcels
   useEffect(() => {
@@ -139,7 +139,7 @@ export function ParcelTracking({
     setIsRefreshing(false);
   };
 
-    const getStatusIcon = (status) => {
+  const getStatusIcon = (status) => {
     switch (status) {
       case "delivered":
         return <CheckCircle className="w-4 h-4 text-success" />;
@@ -153,7 +153,7 @@ export function ParcelTracking({
     }
   };
 
-    const getProgressValue = (status) => {
+  const getProgressValue = (status) => {
     switch (status) {
       case "pending":
         return 10;
@@ -174,7 +174,7 @@ export function ParcelTracking({
     }
   };
 
-    const getStatusColor = (status) => {
+  const getStatusColor = (status) => {
     switch (status) {
       case "delivered":
         return "bg-success/10 text-success border-success/20";
@@ -276,9 +276,7 @@ export function ParcelTracking({
                   <div className="flex items-center justify-between">
                     <span>
                       Your parcel is currently{" "}
-                      {STATUS_LABELS[
-                        parcel.status
-                      ].toLowerCase()}
+                      {STATUS_LABELS[parcel.status].toLowerCase()}
                     </span>
                     <span className="text-xs text-muted-foreground">
                       Auto-updating every 30s
@@ -418,11 +416,7 @@ export function ParcelTracking({
                   <div className="flex-1 pb-4">
                     <div className="flex items-center space-x-2 mb-1">
                       <span className="font-medium">
-                        {
-                          STATUS_LABELS[
-                            status.status as keyof typeof STATUS_LABELS
-                          ]
-                        }
+                        {STATUS_LABELS[status.status]}
                       </span>
                       {index === 0 && (
                         <Badge variant="outline" className="text-xs">
