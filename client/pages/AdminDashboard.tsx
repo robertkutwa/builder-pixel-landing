@@ -61,15 +61,7 @@ import {
   DollarSign,
   BarChart3,
 } from "lucide-react";
-import {
-  Parcel,
-  ApiResponse,
-  PaginatedResponse,
-  DashboardStats,
-  ParcelStatus,
-  UpdateParcelStatusRequest,
-  STATUS_LABELS,
-} from "@shared/api";
+import { STATUS_LABELS } from "../../shared/api.js";
 import { cn } from "../lib/utils";
 
 export default function AdminDashboard() {
@@ -77,16 +69,16 @@ export default function AdminDashboard() {
   const navigate = useNavigate();
   const authenticatedFetch = useAuthenticatedFetch();
 
-  const [parcels, setParcels] = useState<Parcel[]>([]);
-  const [stats, setStats] = useState<DashboardStats | null>(null);
+  const [parcels, setParcels] = useState([]);
+  const [stats, setStats] = useState(null);
   const [isLoading, setIsLoading] = useState(true);
   const [searchTerm, setSearchTerm] = useState("");
-  const [statusFilter, setStatusFilter] = useState<string>("all");
-  const [selectedParcel, setSelectedParcel] = useState<Parcel | null>(null);
+  const [statusFilter, setStatusFilter] = useState("all");
+  const [selectedParcel, setSelectedParcel] = useState(null);
   const [updateDialogOpen, setUpdateDialogOpen] = useState(false);
-  const [newStatus, setNewStatus] = useState<ParcelStatus>("pending");
+  const [newStatus, setNewStatus] = useState("pending");
   const [statusMessage, setStatusMessage] = useState("");
-  const [error, setError] = useState<string | null>(null);
+  const [error, setError] = useState(null);
   const [updateLoading, setUpdateLoading] = useState(false);
 
   useEffect(() => {
@@ -101,15 +93,14 @@ export default function AdminDashboard() {
 
       // Fetch all parcels
       const parcelsResponse = await authenticatedFetch("/api/parcels?limit=50");
-      const parcelsData: ApiResponse<PaginatedResponse<Parcel>> =
-        await parcelsResponse.json();
+      const parcelsData = await parcelsResponse.json();
 
       if (parcelsData.success && parcelsData.data) {
         setParcels(parcelsData.data.items);
 
         // Calculate admin stats
         const items = parcelsData.data.items;
-        const calculatedStats: DashboardStats = {
+        const calculatedStats = {
           totalParcels: items.length,
           pendingParcels: items.filter((p) =>
             ["pending", "confirmed"].includes(p.status),
@@ -143,7 +134,7 @@ export default function AdminDashboard() {
       setUpdateLoading(true);
       setError(null);
 
-      const updateData: UpdateParcelStatusRequest = {
+      const updateData = {
         status: newStatus,
         message: statusMessage || `Status updated to ${newStatus}`,
       };
@@ -156,7 +147,7 @@ export default function AdminDashboard() {
         },
       );
 
-      const data: ApiResponse<Parcel> = await response.json();
+      const data = await response.json();
 
       if (data.success && data.data) {
         // Update the parcel in our local state
@@ -589,7 +580,7 @@ export default function AdminDashboard() {
               <Label htmlFor="new-status">New Status</Label>
               <Select
                 value={newStatus}
-                onValueChange={(value) => setNewStatus(value as ParcelStatus)}
+                onValueChange={(value) => setNewStatus(value)}
               >
                 <SelectTrigger>
                   <SelectValue />
