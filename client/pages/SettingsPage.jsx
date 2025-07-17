@@ -170,9 +170,7 @@ export default function SettingsPage() {
                   <Label htmlFor="theme">Theme</Label>
                   <Select
                     value={theme}
-                    onValueChange={(value: "light" | "dark" | "system") =>
-                      setTheme(value)
-                    }
+                    onValueChange={(value) => setTheme(value)}
                   >
                     <SelectTrigger className="mt-2">
                       <SelectValue />
