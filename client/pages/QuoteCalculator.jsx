@@ -138,7 +138,7 @@ export default function QuoteCalculator() {
         body: JSON.stringify(formData),
       });
 
-      const data: ApiResponse<QuoteResponse> = await response.json();
+            const data = await response.json();
 
       if (data.success && data.data) {
         setQuote(data.data);
