@@ -153,7 +153,7 @@ export function ParcelTracking({
     }
   };
 
-  const getProgressValue = (status: string) => {
+    const getProgressValue = (status) => {
     switch (status) {
       case "pending":
         return 10;
