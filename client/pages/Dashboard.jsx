@@ -101,7 +101,7 @@ export default function Dashboard() {
     }
   };
 
-  const getProgressValue = (status: string) => {
+    const getProgressValue = (status) => {
     switch (status) {
       case "pending":
         return 10;
