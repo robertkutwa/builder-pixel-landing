@@ -116,7 +116,7 @@ export default function EditParcel() {
     }
   };
 
-  const handleInputChange = (field: string, value: any) => {
+    const handleInputChange = (field, value) => {
     if (field.includes(".")) {
       const [parent, child] = field.split(".");
       setFormData((prev) => ({
